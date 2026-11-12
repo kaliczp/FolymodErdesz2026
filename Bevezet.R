@@ -9,3 +9,10 @@ idosor <- ts(erdőlátogatók_száma,
 
 # Idősor megjelenítése
 print(idosor)
+
+plot(idosor,
+     main = "Havi értékesítési adatok",
+     xlab = "Év",
+     ylab = "Erdőlátogatók [fő]",
+     col = "blue",
+     type = "o")
