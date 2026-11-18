@@ -25,7 +25,7 @@ str(adat)
 
 ## Korábbi évek adatainak letöltése
 ## Korábbi adatok kiszűrése a szerverről
-# install.packages("xml2") # Telepítés után már nem kell többször futtatni. Mehet ## a sor elejére.
+install.packages("xml2") # Telepítés után már nem kell többször futtatni. Mehet ## a sor elejére.
 library(xml2) # A telepített csomag betöltése.
 ## Történeti csapadék adatok URL
 archurl <- "https://odp.met.hu/climate/observations_hungary/daily/historical/"
