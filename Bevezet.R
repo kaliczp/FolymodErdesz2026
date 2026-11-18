@@ -23,3 +23,10 @@ data(co2)
 ?co2
 ## Félelmetes emelkedés
 plot(co2)
+## Az adatok
+co2
+## Átalakítás adattáblává
+## Idő
+time(co2)
+## Az adatok
+as.numeric(co2)
