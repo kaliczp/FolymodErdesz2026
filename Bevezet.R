@@ -55,4 +55,11 @@ summary(co2.lm)
 ## A tengelymetszet és meredekség
 co2.lm
 
-
+###### Dekompozíciós idősor elemzés ####
+## A dekompozíciót végző függvények kézikönyvei
+?decompose
+?stl
+## Dekompozíciós idősorelemzés decompose függvénnyel
+decompose(co2)
+co2.decomp <- decompose(co2)
+plot(co2.decomp)
