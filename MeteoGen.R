@@ -86,3 +86,23 @@ coef(Temp.lm)[2]* 365 * 10
 
 ## Statisztikai elemzés
 summary(Temp.lm)
+
+###### Dekompozíciós idősorelemzés
+## Havi adatsor előállítása (hőmérsékletből átlag, csapadékból összeg (sum))
+tempmonth.xts <- apply.monthly(csaptemp.xts[,"t"], mean)
+## A havi adatsor plot
+plot(tempmonth.xts)
+## ts idősor előállítása, olyan legyen, mint a co2
+tempmonth.ts <- ts(as.numeric(coredata(tempmonth.xts)), start = c(2004,6), end=c(2026,11), freq = 12)
+## Plot a ts-ből
+plot(tempmonth.ts)
+
+## Dekompzíciók (trend, szezonális és véletlen komponensekre)
+## Additív, a fentieket összeadva, visszakapom az eredeti idősort
+## Mozgóátlaggal
+tempm.dec <- decompose(tempmonth.ts)
+plot(tempm.dec)
+
+## Loess-szel
+tempm.stl <- stl(tempmonth.ts, s.window = "periodic")
+plot(tempm.stl)
