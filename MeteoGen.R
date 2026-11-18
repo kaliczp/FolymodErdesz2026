@@ -76,10 +76,13 @@ names(temp.df) <- c("Date", "Temp")
 Temp.lm <- lm(Temp ~ Date, data = temp.df)
 
 ## Az ábra és rajta a trend
-plot(Temp ~ Date, data = temp.df)
+plot(Temp ~ Date, data = temp.df, type = "l")
 abline(Temp.lm, col = 2, lwd = 2)
 
 ## A meredekség (napi)
 coef(Temp.lm)[2]
 ## 10 éves
 coef(Temp.lm)[2]* 365 * 10
+
+## Statisztikai elemzés
+summary(Temp.lm)
