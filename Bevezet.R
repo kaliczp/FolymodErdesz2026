@@ -38,3 +38,21 @@ plot(co2.df)
 write.csv2(co2.df, file = "co2df.csv")
 ## A mentés helye:
 getwd()
+
+########### Elemzés ########
+## Trend illesztés lineáris regresszióval
+## lm függvény kézikönve
+?lm
+## plot formulával co2 ~ time
+## tehát a co2 cc az idő függvényében
+plot(co2 ~ time, data = co2.df)
+## Modell eredmény mentése
+co2.lm <- lm(co2 ~ time, data = co2.df)
+## Az ábrára
+abline(co2.lm)
+## A modell statisztikai vizsgálata
+summary(co2.lm)
+## A tengelymetszet és meredekség
+co2.lm
+
+
