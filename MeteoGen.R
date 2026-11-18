@@ -52,3 +52,10 @@ archadat <- read.table(file.path(tempdir(), archcsvfile), sep = ";", head = TRUE
 fulladat <- rbind(archadat, adat)
 ## Nyers adatsor exportálás
 write.csv2(fulladat, "adat.csv")
+
+## xts csomag telepítése a napi felbontású idősorhoz
+install.packages("xts")
+library(xts)
+csaptemp.xts <- xts(fulladat[,c("rau", "t")], as.Date(as.character(fulladat$Time), format="%Y%m%d"))
+## Az összefűzött csapadék, és hőmérséklet adatsor ábárzolása
+plot(csaptemp.xts)
