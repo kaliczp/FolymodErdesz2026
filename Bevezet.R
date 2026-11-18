@@ -34,3 +34,5 @@ as.numeric(co2)
 co2.df <- data.frame(time = time(co2), co2 = as.numeric(co2))
 ## Adattábla nyomtatás
 plot(co2.df)
+## Mentés csv-be
+write.csv2(co2.df, file = "co2df.csv")
