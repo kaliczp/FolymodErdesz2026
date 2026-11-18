@@ -65,3 +65,21 @@ plot(csaptemp.xts)
 plot(csaptemp.xts$rau, col = "blue")
 ## hőmérséklet
 plot(csaptemp.xts$t, col = "red")
+
+## Ugyan azt csináljuk, mint co2-vel
+## data.frame előállítása (napi adatokbó) (a dollár jel után rau-t írva a csapadékra is megy)
+temp.df <- data.frame(index(csaptemp.xts), coredata(csaptemp.xts$t))
+## Adonk az oszopoknak szép nevet
+names(temp.df) <- c("Date", "Temp")
+
+## A lineáris regresszió
+Temp.lm <- lm(Temp ~ Date, data = temp.df)
+
+## Az ábra és rajta a trend
+plot(Temp ~ Date, data = temp.df)
+abline(Temp.lm, col = 2, lwd = 2)
+
+## A meredekség (napi)
+coef(Temp.lm)[2]
+## 10 éves
+coef(Temp.lm)[2]* 365 * 10
