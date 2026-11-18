@@ -30,3 +30,7 @@ co2
 time(co2)
 ## Az adatok
 as.numeric(co2)
+## Adattábla előállítása
+co2.df <- data.frame(time = time(co2), co2 = as.numeric(co2))
+## Adattábla nyomtatás
+plot(co2.df)
