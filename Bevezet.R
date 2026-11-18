@@ -63,3 +63,8 @@ co2.lm
 decompose(co2)
 co2.decomp <- decompose(co2)
 plot(co2.decomp)
+
+## Dekompzíciós idősorelemzés stl (loess)
+co2.stl <- stl(co2, s.window = "periodic")
+co2.stl
+plot(co2.stl)
