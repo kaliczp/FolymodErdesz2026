@@ -16,3 +16,10 @@ plot(idosor,
      ylab = "Erdőlátogatók [fő]",
      col = "blue",
      type = "o")
+
+## Idősor elemzés bevezetés
+data(co2)
+## Az adatok leírása
+?co2
+## Félelmetes emelkedés
+plot(co2)
