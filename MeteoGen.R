@@ -25,7 +25,7 @@ str(adat)
 
 ## Korábbi évek adatainak letöltése
 ## Korábbi adatok kiszűrése a szerverről
-install.packages("xml2") # Telepítés után már nem kell többször futtatni. Mehet ## a sor elejére.
+# install.packages("xml2") # Telepítés után már nem kell többször futtatni. Mehet ## a sor elejére.
 library(xml2) # A telepített csomag betöltése.
 ## Történeti csapadék adatok URL
 archurl <- "https://odp.met.hu/climate/observations_hungary/daily/historical/"
@@ -47,3 +47,8 @@ archcsvfile <- unzip(archzipfile, list = TRUE)$Name
 unzip(archzipfile, exdir = tempdir())
 ## Adat importálás az adat nevű objektumba
 archadat <- read.table(file.path(tempdir(), archcsvfile), sep = ";", head = TRUE)
+
+## A korábbi évek és idei év összefűzése
+fulladat <- rbind(archadat, adat)
+## Nyers adatsor exportálás
+write.csv2(fulladat, "adat.csv")
