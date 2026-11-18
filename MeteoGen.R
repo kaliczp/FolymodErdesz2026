@@ -59,3 +59,9 @@ library(xts)
 csaptemp.xts <- xts(fulladat[,c("rau", "t")], as.Date(as.character(fulladat$Time), format="%Y%m%d"))
 ## Az összefűzött csapadék, és hőmérséklet adatsor ábárzolása
 plot(csaptemp.xts)
+
+## Külön-külön
+## csapadék
+plot(csaptemp.xts$rau, col = "blue")
+## hőmérséklet
+plot(csaptemp.xts$t, col = "red")
